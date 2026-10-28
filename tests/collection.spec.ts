@@ -4,7 +4,7 @@ test("empty search displays all six records", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Search", exact: true }).click();
 
-  await expect(page.getByRole("status")).toHaveText("6 results found.");
+  await expect(page.getByRole("region", { name: "Collection results" }).getByRole("status")).toHaveText("6 results found.");
   await expect(page.getByRole("article")).toHaveCount(6);
 });
 
@@ -13,7 +13,7 @@ test("search finds matching landscapes and opens details", async ({ page }) => {
   await page.getByLabel("Search collection").fill("landscape");
   await page.getByRole("button", { name: "Search", exact: true }).click();
 
-  await expect(page.getByRole("status")).toHaveText("2 results found.");
+  await expect(page.getByRole("region", { name: "Collection results" }).getByRole("status")).toHaveText("2 results found.");
   await expect(page.getByRole("article")).toHaveCount(2);
 
   const coastal = page.getByRole("article").filter({
@@ -30,7 +30,7 @@ test("category filter returns only photographs", async ({ page }) => {
   await page.getByLabel("Category").selectOption("Photography");
   await page.getByRole("button", { name: "Search", exact: true }).click();
 
-  await expect(page.getByRole("status")).toHaveText("2 results found.");
+  await expect(page.getByRole("region", { name: "Collection results" }).getByRole("status")).toHaveText("2 results found.");
   const cards = page.getByRole("article");
   await expect(cards).toHaveCount(2);
 
@@ -44,7 +44,7 @@ test("unmatched search displays a helpful empty state", async ({ page }) => {
   await page.getByLabel("Search collection").fill("zzzz");
   await page.getByRole("button", { name: "Search", exact: true }).click();
 
-  await expect(page.getByRole("status")).toHaveText("0 results found.");
+  await expect(page.getByRole("region", { name: "Collection results" }).getByRole("status")).toHaveText("0 results found.");
   await expect(page.getByText(/No matches\. Try another search/)).toBeVisible();
   await expect(page.getByRole("article")).toHaveCount(0);
 });
@@ -67,7 +67,7 @@ test("server error is displayed and a retry succeeds", async ({ page }) => {
   await page.unroute("**/api/collection?**");
   await page.getByRole("button", { name: "Search", exact: true }).click();
 
-  await expect(page.getByRole("status")).toHaveText("6 results found.");
+  await expect(page.getByRole("region", { name: "Collection results" }).getByRole("status")).toHaveText("6 results found.");
   await expect(page.getByRole("region", { name: "Collection results" }).getByRole("alert")).toHaveCount(0);
 });
 
@@ -104,4 +104,5 @@ test("API rejects searches longer than 100 characters", async ({ request }) => {
     error: "Search must be 100 characters or fewer.",
   });
 });
+
 

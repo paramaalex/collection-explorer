@@ -41,10 +41,22 @@ GitHub Actions run 40668175103 passed on Linux, including lint, the production b
 
 ## Current limitations
 - Six fictional records held in memory
-- No external collection API, database or CMS
+- Live API integration currently retrieves one fixed Met record; no database or CMS
 - No AWS deployment
 - Accessibility features have not undergone a full audit
 
 ## Development
 Built with AI assistance as a practical learning project.
 
+
+## Live museum integration
+GET /api/met retrieves a real record from The Metropolitan Museum of Art.
+The server validates and maps the response, with timeout and error handling.
+The interface displays attribution and a link to the original record.
+
+Ten Playwright tests passed locally. The two live-record interface tests
+use mocked responses, keeping CI independent of the external service.
+Server-side response validation is not yet covered by automated tests.
+
+Intermittent upstream connection failures were observed locally;
+their underlying cause remains unresolved.

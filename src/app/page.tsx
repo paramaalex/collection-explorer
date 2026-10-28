@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useState } from "react";
+import LiveMuseumRecord from "@/components/LiveMuseumRecord";
 import type { FormEvent } from "react";
 
 type CollectionItem = {
@@ -159,7 +160,9 @@ export default function Home() {
             ))}
           </ul>
         </section>
+        <LiveMuseumRecord />
       </div>
     </main>
   );
 }
+
