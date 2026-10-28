@@ -71,3 +71,12 @@ Nineteen automated tests passed locally:
 Production smoke checks passed for the homepage, collection filtering
 and invalid-category rejection. Mobile coverage checks one viewport;
 a full accessibility audit remains outstanding.
+
+## CMS and GraphQL integration
+Added a local Strapi Community CMS with a Museum Object content model,
+draft/publish workflow and read-only public access.
+Next.js consumes its GraphQL API through /api/cms.
+
+Editing and publishing content was manually verified in the interface.
+The production build and all 22 automated tests passed locally.
+See docs/cms/SETUP.md for reproduction steps and test limitations.
