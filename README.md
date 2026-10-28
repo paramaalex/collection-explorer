@@ -60,3 +60,14 @@ Server-side response validation is not yet covered by automated tests.
 
 Intermittent upstream connection failures were observed locally;
 their underlying cause remains unresolved.
+
+## Additional verification
+Nineteen automated tests passed locally:
+- Eight collection interface and API tests
+- Two live-record interface tests with mocked responses
+- Seven backend tests with controlled upstream responses
+- Keyboard navigation and mobile viewport checks
+
+Production smoke checks passed for the homepage, collection filtering
+and invalid-category rejection. Mobile coverage checks one viewport;
+a full accessibility audit remains outstanding.
