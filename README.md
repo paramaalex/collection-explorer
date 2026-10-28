@@ -37,7 +37,7 @@ over 100 characters return HTTP 400.
 ## Continuous integration
 GitHub Actions is configured to run lint, the production build and
 Playwright tests, and upload the HTML report.
-The hosted workflow has not yet been verified.
+GitHub Actions run 40668175103 passed on Linux, including lint, the production build and all eight Playwright tests.
 
 ## Current limitations
 - Six fictional records held in memory
@@ -47,3 +47,4 @@ The hosted workflow has not yet been verified.
 
 ## Development
 Built with AI assistance as a practical learning project.
+
