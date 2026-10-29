@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Local backup files
 *.bak
+
+# Local monitoring output
+/logs/

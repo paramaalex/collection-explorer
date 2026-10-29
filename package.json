@@ -1,13 +1,14 @@
 {
   "name": "te-papa-skills-lab",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "monitor": "node scripts/monitor.mjs"
   },
   "dependencies": {
     "next": "16.4.3",
