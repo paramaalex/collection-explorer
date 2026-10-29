@@ -80,3 +80,24 @@ Next.js consumes its GraphQL API through /api/cms.
 Editing and publishing content was manually verified in the interface.
 The production build and all 22 automated tests passed locally.
 See docs/cms/SETUP.md for reproduction steps and test limitations.
+
+## Contentful SaaS CMS
+The application retrieves published museum records from Contentful through
+a server-side GraphQL request at GET /api/contentful.
+
+Verified manually: editing and publishing a record in Contentful updates
+the record displayed in Next.js after reloading the records.
+
+Local settings in the Git-ignored .env.local file:
+- CONTENTFUL_SPACE_ID
+- CONTENTFUL_ENVIRONMENT
+- CONTENTFUL_DELIVERY_TOKEN
+
+The delivery token stays on the server. It is not committed to Git.
+
+Lint and the production build passed. All 25 automated tests passed locally.
+Two Contentful interface tests use mocked responses to verify display and
+error recovery without requiring cloud credentials in CI.
+Contentful backend validation is not yet covered by automated tests.
+
+This is an independent learning project using fictional records.

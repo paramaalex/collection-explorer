@@ -3,6 +3,7 @@
 import { useState } from "react";
 import LiveMuseumRecord from "@/components/LiveMuseumRecord";
 import CmsCollection from "@/components/CmsCollection";
+import ContentfulCollection from "@/components/ContentfulCollection";
 import type { FormEvent } from "react";
 
 type CollectionItem = {
@@ -163,9 +164,11 @@ export default function Home() {
         </section>
         <LiveMuseumRecord />
         <CmsCollection />
+      <ContentfulCollection />
       </div>
     </main>
   );
 }
+
 
 
